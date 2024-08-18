@@ -1,0 +1,20 @@
+syntax to connect the mongodb from the database-
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+
+const port = 5000;
+const connectDB=async ()=>{
+    mongoose.connect('mongodb://localhost:27017//sahildb');
+    const productSchema=new mongoose.Schema({});
+    const person=mongoose.model('students',productSchema);
+    const data=await person.find();
+    console.log(data);
+}
+
+connectDB();
+
+// app.get("/",(req,res)=>{
+//     res.send("The server is working")
+// });
+app.listen(port);
